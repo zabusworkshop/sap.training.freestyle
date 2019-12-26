@@ -1,0 +1,17 @@
+[
+  {
+    "LeagueId": 1,
+    "Name": "Serie A",
+    "Country": "Italy"
+  },
+  {
+    "LeagueId": 2,
+    "Name": "La Liga",
+    "Country": "Spain"
+  },
+  {
+    "LeagueId": 3,
+    "Name": "Premier League",
+    "Country": "England"
+  }
+]

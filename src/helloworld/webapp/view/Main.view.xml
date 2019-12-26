@@ -1,0 +1,9 @@
+<View xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+  displayBlock="true" controllerName="tinyapp.controller.Main" xmlns:fb="sap.ui.comp.filterbar" height="100%">
+	<App>
+    <Page title="The Tiny App">
+      <Text id="welcomeText" text="Hello {= ${viewModel>/name} ? ${viewModel>/name} : 'World'}!"/>
+      <Input id="welcomeInput" value="{viewModel>/name}"/>
+    </Page>
+  </App>
+</View>
