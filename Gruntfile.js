@@ -6,7 +6,13 @@ module.exports = function (grunt) {
                 options: {
                     port: 8899,
                     keepalive: true
-                }
+                },
+                proxies: [{
+                    context: "/sap/opu/odata/SAP/",
+                    host: "fsdhost.wdf.sap.corp",
+                    port: 8000,
+                    https: false
+                }]
             }
         },
 
