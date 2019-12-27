@@ -1,0 +1,14 @@
+<View xmlns="sap.m" 
+    xmlns:core="sap.ui.core" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" displayBlock="true" controllerName="tinyapp2.controller.Main" 
+    xmlns:fb="sap.ui.comp.filterbar" height="100%">
+    <App>
+        <Page title="The Tiny App">
+            <VBox>
+                <Text id="welcomeText" text="We are here!"/>
+                <Text id="courseName" />
+            </VBox>
+        </Page>
+    </App>
+</View>

@@ -10,6 +10,19 @@ sap.ui.define([
             this.getView().setModel(new JSONModel({
                 name: null
             }), "viewModel");
+        },
+
+        onButtonPress: function () {
+            var oCrossAppNavigation = sap.ushell.Container.getService("CrossApplicationNavigation");
+            oCrossAppNavigation.toExternal({
+                target: {
+                    semanticObject: "dest",
+                    action: "app"
+                },
+                params : {
+                    "course": "WDE360"
+                }
+            });
         }
 
     });

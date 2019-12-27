@@ -2,8 +2,7 @@
   displayBlock="true" controllerName="tinyapp.controller.Main" xmlns:fb="sap.ui.comp.filterbar" height="100%">
 	<App>
     <Page title="The Tiny App">
-      <Text id="welcomeText" text="Hello {= ${viewModel>/name} ? ${viewModel>/name} : 'World'}!"/>
-      <Input id="welcomeInput" value="{viewModel>/name}"/>
+      <Button text="Go To Next App" press="onButtonPress" />
     </Page>
   </App>
 </View>

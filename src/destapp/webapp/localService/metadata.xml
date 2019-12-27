@@ -1,0 +1,167 @@
+<edmx:Edmx Version="1.0" 
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" 
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" 
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="FROM_SCRATCH" sap:schema-version="0" 
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Player">
+                <Key>
+                    <PropertyRef Name="PlayerId"/>
+                </Key>
+                <Property Name="PlayerId" Type="Edm.Decimal" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:label="Player ID" sap:creatable="false" sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
+                <Property Name="Age" Type="Edm.Int32" Nullable="false" sap:aggregation-role="dimension" sap:label="Age" sap:creatable="false" sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
+                <Property Name="TeamId" Type="Edm.Decimal" sap:text="Team/Name" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:label="Team ID" sap:creatable="false" sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
+                <Property Name="LeagueId" Type="Edm.Decimal" sap:text="League/Name" Nullable="false" sap:aggregation-role="dimension" sap:label="League Id" sap:creatable="false" sap:updatable="false" sap:sortable="true" sap:filterable="true" sap:hierarchy-parent-node-for="TeamId"/>
+                <NavigationProperty Name="Team" Relationship="FROM_SCRATCH.PlayerTeam" FromRole="ToRole_Player" ToRole="FromRole_Team"/>
+                <NavigationProperty Name="League" Relationship="FROM_SCRATCH.PlayerLeague" FromRole="ToRole_Player" ToRole="FromRole_League"/>
+            </EntityType>
+            <EntityType Name="Team">
+                <Key>
+                    <PropertyRef Name="TeamId"/>
+                </Key>
+                <Property Name="TeamId" Type="Edm.Decimal" Nullable="false" MaxLength="10" sap:aggregation-role="dimension" sap:label="Team ID" sap:creatable="false" sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
+                <Property Name="LeagueId" Type="Edm.Decimal" Nullable="false" sap:aggregation-role="dimension" sap:label="League Id" sap:creatable="false" sap:updatable="false" sap:sortable="true" sap:filterable="true" sap:hierarchy-parent-node-for="TeamId"/>
+                <NavigationProperty Name="League" Relationship="FROM_SCRATCH.LeagueTeam" FromRole="ToRole_Team" ToRole="FromRole_League"/>
+            </EntityType>
+            <EntityType Name="League">
+                <Key>
+                    <PropertyRef Name="LeagueId"/>
+                </Key>
+                <Property Name="LeagueId" Type="Edm.Decimal" Nullable="false" sap:aggregation-role="dimension" sap:label="League Id" sap:creatable="false" sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="40" sap:aggregation-role="dimension" sap:label="Country" sap:creatable="false" sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
+                <NavigationProperty Name="TeamSet" Relationship="FROM_SCRATCH.LeagueTeam" FromRole="FromRole_League" ToRole="ToRole_Team"/>
+            </EntityType>
+            <Association Name="LeagueTeam" sap:content-version="1">
+                <End Type="FROM_SCRATCH.League" Multiplicity="1" Role="FromRole_League"/>
+                <End Type="FROM_SCRATCH.Team" Multiplicity="*" Role="ToRole_Team"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_League">
+                        <PropertyRef Name="LeagueId"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Team">
+                        <PropertyRef Name="LeagueId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PlayerTeam" sap:content-version="1">
+                <End Type="FROM_SCRATCH.Team" Multiplicity="1" Role="FromRole_Team"/>
+                <End Type="FROM_SCRATCH.Player" Multiplicity="*" Role="ToRole_Player"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Team">
+                        <PropertyRef Name="TeamId"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Player">
+                        <PropertyRef Name="TeamId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PlayerLeague" sap:content-version="1">
+                <End Type="FROM_SCRATCH.League" Multiplicity="1" Role="FromRole_League"/>
+                <End Type="FROM_SCRATCH.Player" Multiplicity="*" Role="ToRole_Player"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_League">
+                        <PropertyRef Name="LeagueId"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Player">
+                        <PropertyRef Name="LeagueId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="FROM_SCRATCH" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="TeamCollection" EntityType="FROM_SCRATCH.Team" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="LeagueCollection" EntityType="FROM_SCRATCH.League" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PlayerCollection" EntityType="FROM_SCRATCH.Player" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="LeagueTeamSet" Association="FROM_SCRATCH.LeagueTeam" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="LeagueCollection" Role="FromRole_League"/>
+                    <End EntitySet="TeamCollection" Role="ToRole_Team"/>
+                </AssociationSet>
+                <AssociationSet Name="PlayerTeamSet" Association="FROM_SCRATCH.PlayerTeam" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="TeamCollection" Role="FromRole_Team"/>
+                    <End EntitySet="PlayerCollection" Role="ToRole_Player"/>
+                </AssociationSet>
+                <AssociationSet Name="PlayerLeagueSet" Association="FROM_SCRATCH.PlayerLeague" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="LeagueCollection" Role="FromRole_League"/>
+                    <End EntitySet="PlayerCollection" Role="ToRole_Player"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="FROM_SCRATCH.Player" 
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+                    <Collection>
+                        <PropertyPath>LeagueId</PropertyPath>
+                        <PropertyPath>TeamId</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="Name"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="TeamId"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="LeagueId"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="Age"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="FROM_SCRATCH.Player/LeagueId" 
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Text">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="League" />
+                        <PropertyValue Property="CollectionPath" String="LeagueCollection" />
+                        <PropertyValue Property="SearchSupported" Bool="false" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="LeagueId" />
+                                    <PropertyValue Property="ValueListProperty" String="LeagueId" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Name" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="FROM_SCRATCH.Player/TeamId" 
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Team" />
+                        <PropertyValue Property="CollectionPath" String="TeamCollection" />
+                        <PropertyValue Property="SearchSupported" Bool="false" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterIn">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="LeagueId" />
+                                    <PropertyValue Property="ValueListProperty" String="LeagueId" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="TeamId" />
+                                    <PropertyValue Property="ValueListProperty" String="TeamId" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Name" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

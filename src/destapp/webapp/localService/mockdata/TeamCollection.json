@@ -1,0 +1,47 @@
+[
+  {
+    "TeamId": 1,
+    "Name": "Arsenal",
+    "LeagueId": 3
+  },
+  {
+    "TeamId": 2,
+    "Name": "Chelsea",
+    "LeagueId": 3
+  },
+  {
+    "TeamId": 3,
+    "Name": "Liverpool",
+    "LeagueId": 3
+  },
+  {
+    "TeamId": 4,
+    "Name": "Atletico Madrid",
+    "LeagueId": 2
+  },
+  {
+    "TeamId": 5,
+    "Name": "Barcelona",
+    "LeagueId": 2
+  },
+  {
+    "TeamId": 6,
+    "Name": "Real Madrid",
+    "LeagueId": 2
+  },
+  {
+    "TeamId": 7,
+    "Name": "AS Roma",
+    "LeagueId": 1
+  },
+  {
+    "TeamId": 8,
+    "Name": "Juventus",
+    "LeagueId": 1
+  },
+  {
+    "TeamId": 9,
+    "Name": "AC Milan",
+    "LeagueId": 1
+  }
+]

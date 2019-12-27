@@ -1,0 +1,177 @@
+[
+    {
+        "PlayerId": 1,
+        "TeamId": 1,
+        "Name": "Lacazette",
+        "Age": 27,
+        "LeagueId": 3
+    },
+    {
+        "PlayerId": 2,
+        "TeamId": 1,
+        "Name": "Aubameyang",
+        "Age": 29,
+        "LeagueId": 3       
+    },
+    {
+        "PlayerId": 3,
+        "TeamId": 1,
+        "Name": "Cech",
+        "Age": 36,
+        "LeagueId": 3       
+    },
+    {
+        "PlayerId": 4,
+        "TeamId": 2,
+        "Name": "Hazard",
+        "Age": 27,
+        "LeagueId": 3       
+    },
+    {
+        "PlayerId": 102,
+        "TeamId": 2,
+        "Name": "Morata",
+        "Age": 26,
+        "LeagueId": 3       
+    },
+    {
+        "PlayerId": 5,
+        "TeamId": 2,
+        "Name": "Pedro",
+        "Age": 31,
+        "LeagueId": 3       
+    },
+    {
+        "PlayerId": 6,
+        "TeamId": 3,
+        "Name": "Salah",
+        "Age": 26,
+        "LeagueId": 3       
+    },
+    {
+        "PlayerId": 7,
+        "TeamId": 3,
+        "Name": "Firmino",
+        "Age": 27,
+        "LeagueId": 3       
+    },
+    {
+        "PlayerId": 101,
+        "TeamId": 3,
+        "Name": "Mane",
+        "Age": 26,
+        "LeagueId": 3       
+    },
+    {
+        "PlayerId": 8,
+        "TeamId": 4,
+        "Name": "Greizmann",
+        "Age": 27,
+        "LeagueId": 2       
+    },
+    {
+        "PlayerId": 9,
+        "TeamId": 4,
+        "Name": "Oblak",
+        "Age": 25,
+        "LeagueId": 2       
+    },
+    {
+        "PlayerId": 10,
+        "TeamId": 5,
+        "Name": "Messi",
+        "Age": 31,
+        "LeagueId": 2       
+    },
+    {
+        "PlayerId": 11,
+        "TeamId": 5,
+        "Name": "Suarez",
+        "Age": 31,
+        "LeagueId": 2       
+    },
+    {
+        "PlayerId": 12,
+        "TeamId": 5,
+        "Name": "Pique",
+        "Age": 31,
+        "LeagueId": 2       
+    },
+    {
+        "PlayerId": 13,
+        "TeamId": 6,
+        "Name": "Marcelo",
+        "Age": 30,
+        "LeagueId": 2       
+    },
+    {
+        "PlayerId": 14,
+        "TeamId": 6,
+        "Name": "Navas",
+        "Age": 32,
+        "LeagueId": 2       
+    },
+    {
+        "PlayerId": 15,
+        "TeamId": 6,
+        "Name": "Ramos",
+        "Age": 32,
+        "LeagueId": 2       
+    },
+    {
+        "PlayerId": 16,
+        "TeamId": 7,
+        "Name": "Dzeko",
+        "Age": 32,
+        "LeagueId": 1      
+    },
+    {
+        "PlayerId": 17,
+        "TeamId": 7,
+        "Name": "El Shaarawy",
+        "Age": 26,
+        "LeagueId": 1      
+    },
+    {
+        "PlayerId": 18,
+        "TeamId": 7,
+        "Name": "Kolarov",
+        "Age": 33,
+        "LeagueId": 1      
+    },
+    {
+        "PlayerId": 19,
+        "TeamId": 8,
+        "Name": "Ronaldo",
+        "Age": 33,
+        "LeagueId": 1      
+    },
+    {
+        "PlayerId": 20,
+        "TeamId": 8,
+        "Name": "Mandzukic",
+        "Age": 32,
+        "LeagueId": 1      
+    },
+    {
+        "PlayerId": 21,
+        "TeamId": 9,
+        "Name": "Higuain",
+        "Age": 31,
+        "LeagueId": 1      
+    },
+    {
+        "PlayerId": 22,
+        "TeamId": 9,
+        "Name": "A. Donnarumma",
+        "Age": 19,
+        "LeagueId": 1      
+    },
+    {
+        "PlayerId": 23,
+        "TeamId": 9,
+        "Name": "Conti",
+        "Age": 24,
+        "LeagueId": 1      
+    }
+]
